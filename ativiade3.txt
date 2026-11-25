@@ -1,0 +1,63 @@
+programa {
+  funcao inicio() {
+
+    //DECLARAÇÃO DE VARIÁVEIS    
+    inteiro senha_correta = 2545   
+    inteiro senha_digitada = 0     
+    inteiro tentativas = 0         
+
+    // Variáveis das operações do Caixa Eletrônico
+    real saldo = 1000.0            
+    real valor_saque = -1.0       
+
+    //ETAPA DE AUTENTICAÇÃO (LOGIN)
+    enquanto (senha_digitada != senha_correta e tentativas < 3) {
+      escreva("\nDigite a sua senha: ")
+      leia(senha_digitada)
+      
+      
+      tentativas = tentativas + 1 
+
+      // Se errou a senha nesta tentativa, exibe aviso
+      se (senha_digitada != senha_correta) {
+        escreva("\nSenha incorreta! Tente novamente.\n")
+      }
+    }
+    
+    //VERIFICAÇÃO DE ACESSO E OPERAÇÕES BANCÁRIAS
+    // Condição principal: O acesso só é liberado se a senha for a correta
+    se (senha_digitada == senha_correta) {
+      escreva("\nACESSO liberado! Bem vindo.")
+
+      // Laço do caixa eletrônico: roda enquanto houver saldo E o usuário não digitar 0 para sair
+      enquanto (saldo > 0 e valor_saque != 0) {
+        escreva("\n\nSaldo atual: R$ ", saldo)
+        escreva("\nDigite o valor para saque (ou 0 para sair): ")
+        leia(valor_saque)
+
+        // Validações do valor digitado
+        se (valor_saque == 0) {
+          escreva("\nOperação finalizada pelo Cliente!")
+        }
+        senao se (valor_saque < 0) {
+          escreva("\n[ERRO] Valor inválido! Digite um valor maior que zero")
+        }
+        senao se (valor_saque > saldo) {
+          escreva("\n[ERRO] Saldo insuficiente!")
+        }
+        senao {
+          // Sucesso: Atualiza o saldo subtraindo o valor sacado
+          saldo = saldo - valor_saque
+          escreva("\nSaque de R$ ", valor_saque, " realizado com sucesso!")
+        }
+      }
+
+      // Exibido após o usuário digitar 0 ou zerar o saldo
+      escreva("\nSessão encerrada. Saldo final: R$ ", saldo)
+    }
+    senao {
+      // Executado caso o laço de login encerre por estourar as 3 tentativas
+      escreva("\nCONTA BLOQUEADA! Excedeu as 3 tentativas.")
+    }
+  }
+}

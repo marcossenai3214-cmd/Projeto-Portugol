@@ -1,0 +1,15 @@
+programa {
+  funcao inicio() {
+    inteiro idade
+
+    escreva("Digite a sua idade: ")
+    leia(idade)
+
+    // Estrutura Condicional se / senao
+    se (idade >= 18) { 
+      escreva("Você é maior de idade! Já pode tirar habilitação.")
+    } senao {
+      escreva("Você é menor de idade! Falta pouco.")
+    }
+  }
+}

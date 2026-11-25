@@ -1,0 +1,36 @@
+programa
+{
+    funcao inicio()
+    {
+        // Declaração de variáveis
+        cadeia nome
+        real nota1, nota2, nota3, media
+
+        // 1. Peça para o usuário digitar o nome do aluno
+        escreva("Digite o nome do aluno: ")
+        leia(nome)
+
+        // 2. Peça para ele digitar 3 notas
+        escreva("Digite a primeira nota: ")
+        leia(nota1)
+        
+        escreva("Digite a segunda nota: ")
+        leia(nota2)
+        
+        escreva("Digite a terceira nota: ")
+        leia(nota3)
+
+        // 3. Calcule a média aritmética dessas 3 notas
+        media = (nota1 + nota2 + nota3) / 3
+
+        // 4. Exiba o resultado final na tela conforme as regras
+        se (media >= 7.0)
+        {
+            escreva("Parabéns ", nome, ", você foi Aprovado! Média: ", media)
+        }
+senao
+        {
+            escreva("Poxa ", nome, ", você ficou de Recuperação. Média: ", media)
+        }
+    }
+}

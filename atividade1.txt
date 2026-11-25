@@ -1,0 +1,20 @@
+programa {
+  funcao inicio() {
+    //Declaração de variáveis 
+    inteiro n1, n2, soma
+  
+   //Entrada de dados 
+    escreva("informe o primeiro valor: ") 
+    leia(n1)
+
+    escreva("informe o segundo valor: ")
+    leia (n2)
+
+   //processamento 
+   soma = n1 + n2 
+
+   //Saida de resultados
+   escreva("O valor da soma é igual a:",soma)
+  }
+}  
+ 
